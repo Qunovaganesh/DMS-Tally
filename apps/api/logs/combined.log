@@ -1,3 +1,6 @@
 {"level":"info","message":"Starting server without database...","service":"bizzplus-api","timestamp":"2025-08-22T23:32:35.720Z"}
 {"level":"info","message":"Server running on port 3001","service":"bizzplus-api","timestamp":"2025-08-22T23:32:35.737Z"}
 {"level":"info","message":"Swagger docs available at http://localhost:3001/docs","service":"bizzplus-api","timestamp":"2025-08-22T23:32:35.738Z"}
+{"level":"info","message":"Starting server without database...","service":"bizzplus-api","timestamp":"2025-08-22T23:39:02.301Z"}
+{"level":"info","message":"Server running on port 3001","service":"bizzplus-api","timestamp":"2025-08-22T23:39:02.326Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:3001/docs","service":"bizzplus-api","timestamp":"2025-08-22T23:39:02.328Z"}
