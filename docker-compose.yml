@@ -50,8 +50,6 @@ services:
     volumes:
       - ./apps/api:/app/apps/api
       - ./packages:/app/packages
-      - /app/node_modules
-      - /app/apps/api/node_modules
 
   web:
     build:
@@ -66,8 +64,6 @@ services:
     volumes:
       - ./apps/web:/app/apps/web
       - ./packages:/app/packages
-      - /app/node_modules
-      - /app/apps/web/node_modules
 
 volumes:
   postgres_data:
