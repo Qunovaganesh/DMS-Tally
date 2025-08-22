@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 245 245 247; /* #F5F5F7 */
+    --foreground: 29 29 31; /* #1D1D1F */
+
+    --card: 255 255 255; /* #FFFFFF */
+    --card-foreground: 29 29 31; /* #1D1D1F */
+
+    --popover: 255 255 255; /* #FFFFFF */
+    --popover-foreground: 29 29 31; /* #1D1D1F */
+
+    --primary: 0 122 255; /* #007AFF */
+    --primary-foreground: 255 255 255;
+
+    --secondary: 110 110 115; /* #6E6E73 */
+    --secondary-foreground: 255 255 255;
+
+    --muted: 230 230 235; /* #E6E6EB */
+    --muted-foreground: 110 110 115; /* #6E6E73 */
+
+    --accent: 0 122 255; /* #007AFF */
+    --accent-foreground: 255 255 255;
+
+    --destructive: 255 59 48; /* #FF3B30 */
+    --destructive-foreground: 255 255 255;
+
+    --border: 230 230 235; /* #E6E6EB */
+    --input: 230 230 235; /* #E6E6EB */
+    --ring: 0 122 255; /* #007AFF */
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 0 0 0;
+    --foreground: 255 255 255;
+
+    --card: 24 24 27;
+    --card-foreground: 255 255 255;
+
+    --popover: 24 24 27;
+    --popover-foreground: 255 255 255;
+
+    --primary: 0 122 255;
+    --primary-foreground: 255 255 255;
+
+    --secondary: 39 39 42;
+    --secondary-foreground: 255 255 255;
+
+    --muted: 39 39 42;
+    --muted-foreground: 161 161 170;
+
+    --accent: 39 39 42;
+    --accent-foreground: 255 255 255;
+
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+
+    --border: 39 39 42;
+    --input: 39 39 42;
+    --ring: 0 122 255;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'SF Pro Display', 'SF Pro Text', '-apple-system', 'system-ui', 'Inter', sans-serif;
+  }
+}
+
+/* Mac-style scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Frosted glass effect */
+.frosted-glass {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Traffic lights */
+.traffic-lights {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.traffic-light {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+}
+
+.traffic-light.red {
+  background: #FF5F57;
+}
+
+.traffic-light.yellow {
+  background: #FFBD2E;
+}
+
+.traffic-light.green {
+  background: #28CA42;
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+}
+
+/* Button hover effects */
+.btn-hover {
+  @apply transition-all duration-200 hover:scale-[1.02] active:scale-[0.98];
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
+/* Loading skeleton */
+.skeleton {
+  @apply animate-pulse bg-muted rounded;
+}
+
+/* Custom animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Table styles */
+.table-hover tbody tr:hover {
+  @apply bg-muted/50;
+}
+
+/* Status badges */
+.status-badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.status-draft {
+  @apply bg-gray-100 text-gray-800;
+}
+
+.status-placed {
+  @apply bg-blue-100 text-blue-800;
+}
+
+.status-accepted {
+  @apply bg-green-100 text-green-800;
+}
+
+.status-rejected {
+  @apply bg-red-100 text-red-800;
+}
+
+.status-fulfilled {
+  @apply bg-purple-100 text-purple-800;
+}
+
+/* Form styles */
+.form-field {
+  @apply space-y-2;
+}
+
+.form-label {
+  @apply text-sm font-medium text-foreground;
+}
+
+.form-input {
+  @apply w-full px-3 py-2 border border-input rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent;
+}
+
+.form-error {
+  @apply text-sm text-destructive;
+}
+
+/* Utility classes */
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
