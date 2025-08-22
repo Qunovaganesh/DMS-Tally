@@ -61,46 +61,26 @@ const loginSchema = z.object({
  *       401:
  *         description: Invalid credentials
  */
-router.post('/login', validate(loginSchema), async (req, res, next) => {
+router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
-
-    // Simple mock authentication
-    const user = mockUsers.find(u => u.email === email);
-    if (!user || password !== 'demo123') {
-      return res.status(401).json({
-        success: false,
-        error: 'Invalid credentials'
+    
+    // Simple mock authentication - password is always 'demo123'
+    if (password === 'demo123') {
+      let role = 'distributor';
+      if (email.includes('admin')) role = 'admin';
+      else if (email.includes('contact')) role = 'manufacturer';
+      
+      res.json({
+        success: true,
+        user: { email, role },
+        token: 'mock-jwt-token'
       });
+    } else {
+      res.status(401).json({ success: false, message: 'Invalid credentials' });
     }
-
-    // Generate tokens
-    const accessToken = jwt.sign(
-      { userId: user.id, role: user.role },
-      'demo-secret',
-      { expiresIn: '15m' }
-    );
-
-    const refreshToken = jwt.sign(
-      { userId: user.id },
-      'demo-refresh-secret',
-      { expiresIn: '7d' }
-    );
-
-    logger.info(`User ${user.email} logged in successfully`);
-
-    res.json({
-      success: true,
-      data: {
-        user,
-        tokens: {
-          accessToken,
-          refreshToken
-        }
-      }
-    });
   } catch (error) {
-    next(error);
+    res.status(500).json({ success: false, message: 'Server error' });
   }
 });
 
