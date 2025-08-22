@@ -72,7 +72,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'SF Pro Display', 'SF Pro Text', '-apple-system', 'system-ui', 'Inter', sans-serif;
+    font-family: 'Inter', 'SF Pro Display', 'SF Pro Text', '-apple-system', 'system-ui', sans-serif;
   }
 }
 
