@@ -75,6 +75,7 @@ export default function LoginPage() {
               <Input
                 type="email"
                 placeholder="Enter your email"
+                defaultValue="admin@bizzplus.com"
                 {...register('email')}
                 className={errors.email ? 'border-destructive' : ''}
               />
@@ -89,6 +90,7 @@ export default function LoginPage() {
                 <Input
                   type={showPassword ? 'text' : 'password'}
                   placeholder="Enter your password"
+                  defaultValue="demo123"
                   {...register('password')}
                   className={errors.password ? 'border-destructive pr-10' : 'pr-10'}
                 />
@@ -133,9 +135,10 @@ export default function LoginPage() {
           <div className="mt-6 p-4 bg-muted rounded-lg">
             <h4 className="text-sm font-medium mb-2">Demo Credentials:</h4>
             <div className="text-xs space-y-1 text-muted-foreground">
-              <p><strong>Admin:</strong> admin@bizzplus.com / admin123</p>
-              <p><strong>Manufacturer:</strong> contact@abcelectronics.com / manufacturer123</p>
-              <p><strong>Distributor:</strong> orders@delhielectronics.com / distributor123</p>
+              <p><strong>All users:</strong> Use any email above with password: <strong>demo123</strong></p>
+              <p><strong>Admin:</strong> admin@bizzplus.com</p>
+              <p><strong>Manufacturer:</strong> contact@abcelectronics.com</p>
+              <p><strong>Distributor:</strong> orders@delhielectronics.com</p>
             </div>
           </div>
         </CardContent>

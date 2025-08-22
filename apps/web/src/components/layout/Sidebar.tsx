@@ -9,7 +9,6 @@ import {
   Settings,
   BarChart3,
   FileText,
-  Database,
   Activity,
 } from 'lucide-react'
 
@@ -60,18 +59,6 @@ const navItems: NavItem[] = [
     to: '/admin/users',
     icon: Users,
     label: 'Users',
-    roles: ['admin'],
-  },
-  {
-    to: '/admin/crm',
-    icon: Database,
-    label: 'CRM',
-    roles: ['admin'],
-  },
-  {
-    to: '/admin/tdl',
-    icon: Activity,
-    label: 'TDL',
     roles: ['admin'],
   },
   {

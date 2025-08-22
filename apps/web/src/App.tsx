@@ -21,8 +21,6 @@ import ManufacturerOrderDetailPage from './pages/manufacturer/OrderDetailPage'
 // Admin pages
 import AdminDashboard from './pages/admin/Dashboard'
 import AdminUsersPage from './pages/admin/UsersPage'
-import AdminCRMPage from './pages/admin/CRMPage'
-import AdminTDLPage from './pages/admin/TDLPage'
 import AdminLogsPage from './pages/admin/LogsPage'
 
 // Layout components
@@ -102,16 +100,6 @@ function App() {
           <Route path="/admin/users" element={
             <ProtectedRoute roles={['admin']}>
               <AdminUsersPage />
-            </ProtectedRoute>
-          } />
-          <Route path="/admin/crm" element={
-            <ProtectedRoute roles={['admin']}>
-              <AdminCRMPage />
-            </ProtectedRoute>
-          } />
-          <Route path="/admin/tdl" element={
-            <ProtectedRoute roles={['admin']}>
-              <AdminTDLPage />
             </ProtectedRoute>
           } />
           <Route path="/admin/logs" element={
