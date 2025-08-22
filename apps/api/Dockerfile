@@ -5,6 +5,9 @@ WORKDIR /app
 # Install pnpm
 RUN npm install -g pnpm
 
+# Install build tools for native modules
+RUN apk add --no-cache build-base python3
+
 # Copy package files
 COPY package.json pnpm-workspace.yaml ./
 COPY apps/api/package.json ./apps/api/
