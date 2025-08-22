@@ -8,7 +8,7 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "concurrently \"pnpm run dev:api\" \"pnpm run dev:web\"",
+    "dev": "concurrently \"pnpm -w run dev:api\" \"pnpm -w run dev:web\"",
     "dev:web": "pnpm --filter web dev",
     "dev:api": "pnpm --filter api dev",
     "build": "pnpm run build:packages && pnpm run build:apps",
